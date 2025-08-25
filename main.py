@@ -26,3 +26,15 @@ st.write(df_user_input)
 model_path = path.join("Model","iris_classifier.pkl")
 with open(model_path, 'rb') as file:
     iris_predictor = pickle.load(file)
+
+dict_species = {0: "setosa", 1: "versicolor", 2: "virginica"}
+if st.button("Predict Species"):
+    if((petal_length == None) or (sepal_width == None)
+    or (sepal_length==None) or (sepal_width==None)):
+        #will be executed when any of the values is not entered properly
+        st.write("Please fill all values")
+
+    else:
+        # prediction can be done here
+        predicted_species = iris_predictor.predict(df_user_input)
+        st.write("The species is .... ", dict_species[predicted_species[0]])
