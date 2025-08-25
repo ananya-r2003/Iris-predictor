@@ -37,4 +37,4 @@ if st.button("Predict Species"):
     else:
         # prediction can be done here
         predicted_species = iris_predictor.predict(df_user_input)
-        st.write("The species is .... ", dict_species[predicted_species[0]])
+        st.write("The species is ", dict_species[predicted_species[0]])
